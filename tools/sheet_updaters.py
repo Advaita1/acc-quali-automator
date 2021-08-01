@@ -7,6 +7,8 @@ def update_quali_sheet(new_laps, sheet_name):
     new_laps -- List of new lap dicts.
     sheet_name -- String containing sheet name.
     """
+    if new_laps == None:
+        return
     # Get sheet
     sheet = build_authenticated_sheet(sheet_name)
     # Get current laps

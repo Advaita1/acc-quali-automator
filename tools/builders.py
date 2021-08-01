@@ -19,10 +19,15 @@ def build_fastest_lap(result):
 
 def build_fastest_laps(data):
     """Return a list of dictionaries which contain a driver, car, race number, and fastest lap.
+    Return None if there were no laps set in the session.
 
     Keyword arguments:
     data -- ACC session dictionary.
     """
+    # If there are no laps in the session, return None
+    if len(data['sessionResult']['leaderBoardLines']) == 0:
+        return None
+
     laps = []
     for result in data['sessionResult']['leaderBoardLines']:
         # Skip laps longer than 3 min
