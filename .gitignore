@@ -1,0 +1,4 @@
+config.py
+auth.json
+__pycache__/
+.DS_store
