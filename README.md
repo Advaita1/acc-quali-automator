@@ -39,7 +39,9 @@ ACC Quali Automator expects that your sheet has a header row with five columns:
 
 The cells under # must be formatted as =rows() - 1
 
-The application also expects that there will be no more than 500 records per sheet.
+The application expects that the quali sheet will be contained in sheet1 of the spreadsheet.
+
+It also expects that there will be no more than 500 records per sheet.
 
 # Usage
 
