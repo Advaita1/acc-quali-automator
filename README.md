@@ -37,7 +37,7 @@ ACC Quali Automator expects that your sheet has a header row with five columns:
 
 #, DRIVER NAME, CAR, NUMBER, LAP TIME
 
-The cells under # must be formatted as =rows() - 1
+The cells under # must be formatted as =ROW() - 1
 
 The application expects that the quali sheet will be contained in sheet1 of the spreadsheet.
 
