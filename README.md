@@ -10,7 +10,7 @@ pip3 install -r requirements.txt
 
 ## Setup
 
-### Give ACC Quali Automator access to your spreadsheet
+### Give ACC Quali Automator Access to Your Spreadsheet
 
 1. Log into the Google account that owns your qualifying spreadsheet.
 2. Follow steps 1-5 in this [article](https://medium.datadriveninvestor.com/use-google-sheets-as-your-database-using-python-77d40009860f).
@@ -18,7 +18,7 @@ pip3 install -r requirements.txt
 4. Rename this key to auth.json and move it into /acc_quali_automation/
 5. Continue following steps 6 and 7 in the article to give ACC Quali Automator access to your sheet.
 
-### Set up config.py
+### config.py
 
 Taking the config.py.example file as your guide, create a file called config.py inside /acc_quali_automation/
 
@@ -31,7 +31,7 @@ FILE_PATH is the relative file path to the folder that the UTF-8 converted ACC s
 
 SPREADSHEET_NAME is the name of the spreadsheet that stores the best times from your quali server.
 
-### Sheet expectations
+### Sheet Expectations
 
 ACC Quali Automator expects that your sheet has a header row with five columns:
 
@@ -40,6 +40,14 @@ ACC Quali Automator expects that your sheet has a header row with five columns:
 The cells under # must be formatted as =rows() - 1
 
 The application also expects that there will be no more than 500 records per sheet.
+
+# Usage
+
+Run the command
+
+```bash
+python3 app.py
+```
 
 # Limitations
 
