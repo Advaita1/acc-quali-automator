@@ -35,7 +35,7 @@ SPREADSHEET_NAME is the name of the spreadsheet that stores the best times from 
 
 ACC Quali Automator expects that your sheet has a header row with five columns:
 
-#, DRIVER NAME, CAR, NUMBER, LAP TIME
+#, DRIVER NAME, CAR, NUMBER, LAP TIME, ID
 
 The cells under # must be formatted as =ROW() - 1
 
@@ -53,6 +53,4 @@ python3 app.py
 
 # Limitations
 
-At the moment ACC Qauli Automator does not handle the case where two separate drivers have the same first and last name. If you run into this case, a middle initial should be enforced to distinguish the drivers.
-
-The application also does not handle the JSON files that are directly output from an ACC server. These files are UTF-16 encoded and must first be converted to UTF-8.
+ACC Quali Automator does not handle the JSON files that are directly output from an ACC server. These files are UTF-16 encoded and must first be converted to UTF-8.

@@ -21,9 +21,9 @@ def update_quali_sheet(new_laps, sheet_name):
     # Iterate through new laps
     for new_lap in new_laps:
         # Check if driver has existing time
-        if new_lap['driver_name'] in current_laps_dict.keys():
+        if new_lap['id'] in current_laps_dict.keys():
             # Add to batch if new time is faster
-            if current_laps_dict[new_lap['driver_name']]['lap_time'] > new_lap['lap_time']:
+            if current_laps_dict[new_lap['id']]['lap_time'] > new_lap['lap_time']:
                 batch.append(build_batch_element(new_lap, current_laps_dict))
         # Add new driver to batch
         else:
@@ -32,4 +32,4 @@ def update_quali_sheet(new_laps, sheet_name):
     # Update sheet
     sheet.batch_update(batch)
     # Sort sheet
-    sheet.sort((5, 'asc'), range='B2:E550')
+    sheet.sort((5, 'asc'), range='B2:F550')

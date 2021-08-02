@@ -14,7 +14,8 @@ def build_fastest_lap(result):
         'driver_name': result['currentDriver']['firstName'] + ' ' + result['currentDriver']['lastName'],
         'car': car_by_id[result['car']['carModel']],
         'number': result['car']['raceNumber'],
-        'lap_time': time
+        'lap_time': time,
+        'id': result['currentDriver']['playerId']
     }
 
 def build_fastest_laps(data):
@@ -57,9 +58,9 @@ def build_current_lap_dict(current_laps):
     """
     dict = {}
     for current_lap in current_laps:
-        dict[current_lap['DRIVER NAME']] = {
+        dict[current_lap['ID']] = {
             'lap_time': current_lap['LAP TIME'],
-            'sheet_location': f"B{current_lap['#'] + 1}:E{current_lap['#'] + 1}"
+            'sheet_location': f"B{current_lap['#'] + 1}:F{current_lap['#'] + 1}"
         }
     return dict
 
@@ -71,22 +72,19 @@ def build_batch_element(new_lap, current_lap_dict=None, insertion_row=None):
     current_lap_dict -- (optional) Dict containing existing lap data. Pass in None for new drivers.
     insertion_row -- (optional) Insertion row for new driver records.
     """
+    values = [[
+                new_lap['driver_name'],
+                new_lap['car'],
+                new_lap['number'],
+                new_lap['lap_time'],
+                new_lap['id']
+            ]]
     if current_lap_dict == None:
         return {
-            'range': f"B{insertion_row}:E{insertion_row}",
-            'values': [[
-            new_lap['driver_name'],
-            new_lap['car'],
-            new_lap['number'],
-            new_lap['lap_time']
-            ]]
+            'range': f"B{insertion_row}:F{insertion_row}",
+            'values': values
         }
     return {
-        'range': f"{current_lap_dict[new_lap['driver_name']]['sheet_location']}",
-        'values': [[
-            new_lap['driver_name'],
-            new_lap['car'],
-            new_lap['number'],
-            new_lap['lap_time']
-        ]]
+        'range': f"{current_lap_dict[new_lap['id']]['sheet_location']}",
+        'values': values
     }
